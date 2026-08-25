@@ -1,3 +1,5 @@
+export { analyzeChain } from './application/analyzeChain.js';
+export type { ChainAnalysis } from './application/analyzeChain.js';
 export { determineMovingSupply } from './domain/movingSupply.js';
 export type {
   MovingSupplyDecision,
