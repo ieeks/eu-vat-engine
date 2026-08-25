@@ -1,15 +1,15 @@
 import type { CountryCode } from '../../domain/transaction.js';
 
 /**
- * EU Member States used by the legal scope checks.
+ * EU Member States used by legal scope checks.
  * Baseline: EU-27, reviewed for the 2026-08 project baseline.
  *
- * This is reference data, not VAT decision logic. If EU membership changes,
- * update this module and its provenance record rather than changing Art. 36a code.
+ * Internal jurisdiction codes use ISO 3166-1 alpha-2. VAT-ID prefixes are a
+ * separate concept (notably Greece: country GR, VAT prefix EL).
  */
 export const EU_MEMBER_STATES = [
   'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DE', 'DK', 'EE',
-  'EL', 'ES', 'FI', 'FR', 'HU', 'IE', 'IT', 'LT', 'LU',
+  'ES', 'FI', 'FR', 'GR', 'HU', 'IE', 'IT', 'LT', 'LU',
   'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK',
 ] as const;
 
