@@ -1,32 +1,47 @@
 # EU VAT Engine
 
-Deterministic VAT decision engine for EU chain transactions.
+Deterministic VAT decision support for EU chain transactions.
 
-## Project status
+## What this repository is
 
-This repository is being built as a clean-room V5 successor to the existing chain-transaction calculator. The core design rule is strict separation between:
+This is a clean-room successor to the existing chain-transaction calculator. It separates:
 
-1. **Legal decision logic** — deterministic VAT analysis.
-2. **Knowledge / legal sources** — EU and national rules with provenance.
-3. **Company policy** — internal conservative choices, never presented as statutory law.
-4. **SAP mapping** — applied only after the VAT treatment is known.
-5. **UI / explanations** — presentation only; no tax decisions.
+1. **Legal decision logic**
+2. **Legal knowledge and provenance**
+3. **Company policy**
+4. **SAP mapping**
+5. **UI and explanations**
 
-Development starts with the VAT core and automated tests. UI and SAP are intentionally deferred.
+The engine prefers an explicit unresolved result to a hidden assumption.
 
-## Safety principle
+## Implemented
 
-The engine must never infer that a VAT ID was communicated merely because the company owns that VAT registration. Where a legally material fact is unknown, the engine returns an indeterminate result rather than silently guessing.
+- chain transaction model
+- Art. 36a moving-supply allocation
+- Art. 31/32 place-of-supply allocation
+- Art. 138 exemption qualification with verified/conditional/not-met states
+- Art. 40/41 acquisition logic and Art. 42 triangular relief
+- Art. 141/197 triangular simplification
+- anti-abuse and invoice/reporting gates
+- data-driven national reverse-charge API with verified IT/BE coverage
+- registration-risk API
+- EPDE / EPROHA configuration and separate legacy policy overlay
+- SAP mapping adapter that never invents unknown codes
+- browser UI
+- automated tests and CI
 
-## Phase 1
+## Start locally
 
-The first implementation covers:
+```bash
+npm install
+npm run dev
+```
 
-- a typed transaction model for chain transactions;
-- transport-organizer modelling;
-- Art. 36a moving-supply allocation;
-- explicit handling of the VAT ID actually communicated to the supplier;
-- indeterminate results where a required fact is missing;
-- automated unit tests and CI.
+## Quality gates
 
-Later phases will add place-of-supply, Art. 138, acquisitions, triangular transactions, national reverse-charge rules, company policies, SAP mappings and the UI.
+```bash
+npm run check
+npm run build
+```
+
+See `docs/ARCHITECTURE.md` and `docs/LEGAL_BASELINE.md`.
