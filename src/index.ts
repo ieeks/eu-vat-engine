@@ -12,4 +12,6 @@ export type {
   VatIdCommunication,
   VatRegistration,
 } from './domain/transaction.js';
+export { EU_LEGAL_RULES } from './knowledge/eu/legalRules.js';
+export type { LegalRuleDefinition, LegalSource } from './knowledge/eu/legalRules.js';
 export { EU_MEMBER_STATES, isEuMemberState } from './knowledge/eu/memberStates.js';
