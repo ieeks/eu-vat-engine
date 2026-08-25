@@ -15,7 +15,7 @@ describe('EU reference data', () => {
   it('keeps official legal-source provenance with reviewed dates', () => {
     expect(EU_LEGAL_RULES.VAT_DIRECTIVE_ART_36A_2.source).toMatchObject({
       url: expect.stringContaining('eur-lex.europa.eu'),
-      reviewedOn: '2026-08-25',
+      reviewedOn: '2026-08-26',
     });
   });
 });
