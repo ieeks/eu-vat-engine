@@ -231,7 +231,7 @@ export function deriveSapForSwissImport(
   result: SwissImportResult,
 ): SpecialSapDerivationResult {
   if (result.status === 'indeterminate') return { status: 'indeterminate', suggestions: [], rationale: result.rationale };
-  if (result.status === 'customer_import') return { status: 'complete', suggestions: [] };
+  if (result.status !== 'supplier_domestic_supply') return { status: 'complete', suggestions: [] };
   return {
     status: 'complete',
     suggestions: [specialSuggestion(
