@@ -16,30 +16,30 @@ const VAT_DIRECTIVE_SOURCE: LegalSource = {
   reviewedOn: '2026-08-25',
 };
 
+const T646_SOURCE: LegalSource = {
+  title: 'General Court judgment T-646/24, 3 December 2025',
+  url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62024TJ0646',
+  reviewedOn: '2026-08-25',
+};
+
+const LUXURY_TRUST_SOURCE: LegalSource = {
+  title: 'Court of Justice judgment C-247/21, Luxury Trust Automobil',
+  url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62021CJ0247',
+  reviewedOn: '2026-08-25',
+};
+
 export const EU_LEGAL_RULES = {
-  VAT_DIRECTIVE_ART_31: {
-    id: 'VAT_DIRECTIVE_ART_31',
-    label: 'Art. 31 — place of supply for goods without transport',
-    source: VAT_DIRECTIVE_SOURCE,
-  },
-  VAT_DIRECTIVE_ART_32: {
-    id: 'VAT_DIRECTIVE_ART_32',
-    label: 'Art. 32 — place of supply for goods with transport',
-    source: VAT_DIRECTIVE_SOURCE,
-  },
-  VAT_DIRECTIVE_ART_36A_1: {
-    id: 'VAT_DIRECTIVE_ART_36A_1',
-    label: 'Art. 36a(1) — default attribution to the supply made to the intermediary operator',
-    source: VAT_DIRECTIVE_SOURCE,
-  },
-  VAT_DIRECTIVE_ART_36A_2: {
-    id: 'VAT_DIRECTIVE_ART_36A_2',
-    label: 'Art. 36a(2) — departure-state VAT ID communicated to supplier',
-    source: VAT_DIRECTIVE_SOURCE,
-  },
-  VAT_DIRECTIVE_ART_36A_OUT_OF_SCOPE: {
-    id: 'VAT_DIRECTIVE_ART_36A_OUT_OF_SCOPE',
-    label: 'Art. 36a scope — movement must be from one Member State to another Member State',
-    source: VAT_DIRECTIVE_SOURCE,
-  },
+  VAT_DIRECTIVE_ART_31: { id: 'VAT_DIRECTIVE_ART_31', label: 'Art. 31 — place of supply without dispatch or transport', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_32: { id: 'VAT_DIRECTIVE_ART_32', label: 'Art. 32 — place of supply with dispatch or transport', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_36A_1: { id: 'VAT_DIRECTIVE_ART_36A_1', label: 'Art. 36a(1) — default attribution to the supply made to the intermediary operator', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_36A_2: { id: 'VAT_DIRECTIVE_ART_36A_2', label: 'Art. 36a(2) — departure-state VAT ID communicated to supplier', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_36A_OUT_OF_SCOPE: { id: 'VAT_DIRECTIVE_ART_36A_OUT_OF_SCOPE', label: 'Art. 36a scope — movement from one Member State to another Member State', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_40: { id: 'VAT_DIRECTIVE_ART_40', label: 'Art. 40 — place of intra-Community acquisition at end of transport', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_41: { id: 'VAT_DIRECTIVE_ART_41', label: 'Art. 41 — VAT-ID Member State safety-net acquisition', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_42: { id: 'VAT_DIRECTIVE_ART_42', label: 'Art. 42 — triangular derogation from Article 41', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_138_1: { id: 'VAT_DIRECTIVE_ART_138_1', label: 'Art. 138(1)/(1a) — exemption for qualifying intra-Community supplies', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_141: { id: 'VAT_DIRECTIVE_ART_141', label: 'Art. 141 — triangular transaction simplification', source: VAT_DIRECTIVE_SOURCE },
+  VAT_DIRECTIVE_ART_197: { id: 'VAT_DIRECTIVE_ART_197', label: 'Art. 197 — recipient liable for VAT in qualifying triangular transaction', source: VAT_DIRECTIVE_SOURCE },
+  CASE_T646_24: { id: 'CASE_T646_24', label: 'T-646/24 — four-party physical delivery extension and fraud/abuse limitation', source: T646_SOURCE },
+  CASE_C247_21: { id: 'CASE_C247_21', label: 'C-247/21 Luxury Trust — triangular invoice reverse-charge wording', source: LUXURY_TRUST_SOURCE },
 } as const satisfies Record<string, LegalRuleDefinition>;
