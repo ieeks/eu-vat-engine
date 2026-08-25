@@ -107,4 +107,16 @@ CI runs security audit, strict TypeScript typecheck, the full Vitest suite and a
 - National rules and SAP tax codes are never invented when the knowledge baseline is incomplete.
 - Third-country multi-party customs chains require explicit customs/importer/exporter facts rather than applying Art. 36a outside its scope.
 
-See `docs/ARCHITECTURE.md` and `docs/LEGAL_BASELINE.md` for the model and legal baseline.
+## Deliberate review boundaries
+
+The application is complete for the implemented modules above, but it is not intended to replace legal review for every possible VAT fact pattern. In particular, the following remain explicit review boundaries rather than guessed rules:
+
+- country-specific special reverse-charge categories (for example construction, scrap, electronics or other special goods);
+- installation/assembly supplies requiring country-specific rules;
+- generic temporary-use exceptions under Art. 17(2)(g)/(h), where purpose and duration conditions are not fully captured;
+- multi-party customs chains involving third countries unless importer/exporter-of-record and movement-attribution facts are explicitly established;
+- SAP combinations for which no verified productive mapping exists.
+
+These boundaries are represented by `review_required`, `indeterminate`, `conditional` or `unknown` rather than hidden defaults.
+
+See `docs/ARCHITECTURE.md`, `docs/LEGAL_BASELINE.md` and `docs/COUNTRY_RULES.md` for the model and legal baseline.
