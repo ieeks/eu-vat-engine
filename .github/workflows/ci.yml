@@ -25,3 +25,6 @@ jobs:
 
       - name: Typecheck and test
         run: npm run check
+
+      - name: Build web app
+        run: npm run build
