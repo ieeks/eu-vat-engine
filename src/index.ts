@@ -3,6 +3,12 @@ export type {
   MovingSupplyDecision,
   MovingSupplyRuleId,
 } from './domain/movingSupply.js';
+export { allocateSupplyPlaces } from './domain/placeOfSupply.js';
+export type {
+  DeterminedMovingSupplyDecision,
+  SupplyPlaceAllocation,
+  SupplyPosition,
+} from './domain/placeOfSupply.js';
 export type {
   ChainTransaction,
   CountryCode,
