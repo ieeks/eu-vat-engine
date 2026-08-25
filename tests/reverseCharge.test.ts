@@ -26,7 +26,7 @@ describe('national reverse charge', () => {
     expect(result.status).toBe('indeterminate');
   });
 
-  it('refuses to guess unverified national rules', () => {
+  it('applies the verified Polish ordinary-goods rule for a non-registered foreign supplier and qualifying buyer', () => {
     const result = evaluateNationalReverseCharge({
       country: 'PL',
       sellerEstablished: false,
@@ -34,7 +34,11 @@ describe('national reverse charge', () => {
       buyerEstablished: 'yes',
       buyerVatRegistered: 'yes',
       buyerPeriodicReturnFiler: 'yes',
+      buyerTaxablePerson: 'yes',
     });
-    expect(result.status).toBe('country_rule_not_verified');
+    expect(result).toMatchObject({
+      status: 'applies',
+      sourceId: 'PL_VAT_ACT_ART17_1_5',
+    });
   });
 });
