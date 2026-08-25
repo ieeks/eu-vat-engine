@@ -51,4 +51,24 @@ describe('determineAcquisition', () => {
       additionalCountry: 'AT',
     });
   });
+
+  it('does not present Article 42 as final while the triangle is only conditional', () => {
+    const moving = determineMovingSupply(tx);
+    if (moving.status !== 'determined') throw new Error('test setup');
+
+    const result = determineAcquisition(
+      tx,
+      moving,
+      { vatIdUsed: { status: 'known', country: 'AT' } },
+      {
+        status: 'conditional',
+        intermediaryPartyId: 'B',
+        subsequentSupplyId: 'L2',
+        pendingConditions: ['invoice'],
+        rationale: 'pending',
+      },
+    );
+
+    expect(result.article41.status).toBe('potentially_neutralized_by_article_42');
+  });
 });

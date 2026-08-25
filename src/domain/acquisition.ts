@@ -17,6 +17,11 @@ export interface AcquisitionResult {
         readonly rationale: string;
       }
     | {
+        readonly status: 'potentially_neutralized_by_article_42';
+        readonly additionalCountry: string;
+        readonly rationale: string;
+      }
+    | {
         readonly status: 'neutralized_by_article_42';
         readonly additionalCountry: string;
         readonly rationale: string;
@@ -48,7 +53,7 @@ export function determineAcquisition(
 
   const additionalCountry = vatIdUsed.country.toUpperCase();
 
-  if (triangle.status === 'applicable' || triangle.status === 'conditional') {
+  if (triangle.status === 'applicable') {
     return {
       acquirerPartyId: acquirer.id,
       destinationAcquisitionCountry: destination,
@@ -57,7 +62,21 @@ export function determineAcquisition(
         status: 'neutralized_by_article_42',
         additionalCountry,
         rationale:
-          'Article 42 can disapply the Article 41 safety-net acquisition where the triangular conditions and reporting requirements are fulfilled.',
+          'Article 42 disapplies the Article 41 safety-net acquisition where the triangular conditions and reporting requirements are fulfilled.',
+      },
+    };
+  }
+
+  if (triangle.status === 'conditional') {
+    return {
+      acquirerPartyId: acquirer.id,
+      destinationAcquisitionCountry: destination,
+      destinationLegalRuleId: 'VAT_DIRECTIVE_ART_40',
+      article41: {
+        status: 'potentially_neutralized_by_article_42',
+        additionalCountry,
+        rationale:
+          'Article 42 may disapply the Article 41 safety-net acquisition, but the triangular simplification is still conditional on unresolved compliance facts.',
       },
     };
   }
