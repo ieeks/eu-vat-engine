@@ -17,6 +17,16 @@ const VAT_DIRECTIVE_SOURCE: LegalSource = {
 };
 
 export const EU_LEGAL_RULES = {
+  VAT_DIRECTIVE_ART_31: {
+    id: 'VAT_DIRECTIVE_ART_31',
+    label: 'Art. 31 — place of supply for goods without transport',
+    source: VAT_DIRECTIVE_SOURCE,
+  },
+  VAT_DIRECTIVE_ART_32: {
+    id: 'VAT_DIRECTIVE_ART_32',
+    label: 'Art. 32 — place of supply for goods with transport',
+    source: VAT_DIRECTIVE_SOURCE,
+  },
   VAT_DIRECTIVE_ART_36A_1: {
     id: 'VAT_DIRECTIVE_ART_36A_1',
     label: 'Art. 36a(1) — default attribution to the supply made to the intermediary operator',
