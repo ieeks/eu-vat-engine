@@ -232,6 +232,11 @@ export type SwissImportResult =
       readonly rationale: string;
     }
   | {
+      readonly status: 'supplier_import_without_subordination';
+      readonly country: 'CH';
+      readonly rationale: string;
+    }
+  | {
       readonly status: 'indeterminate';
       readonly missingFacts: readonly string[];
       readonly rationale: string;
@@ -266,10 +271,10 @@ export function evaluateSwissImport(input: SwissImportInput): SwissImportResult 
 
   if (input.supplierUsesSubordinationDeclaration === 'no') {
     return {
-      status: 'customer_import',
+      status: 'supplier_import_without_subordination',
       country: 'CH',
       rationale:
-        'The supplier does not use a Swiss subordination declaration. The engine therefore does not classify the supplier’s sale as a Swiss domestic supply solely because the supplier arranged carriage.',
+        'The supplier is importer of record but does not use a Swiss subordination declaration. The engine therefore does not reclassify the supplier sale as a Swiss domestic supply under Article 3 MWSTV and does not propose a Swiss domestic-sale SAP code; the import VAT/customs position remains separate.',
     };
   }
 
