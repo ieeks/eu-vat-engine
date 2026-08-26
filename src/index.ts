@@ -1,0 +1,51 @@
+export { analyzeChain } from './application/analyzeChain.js';
+export type { ChainAnalysis } from './application/analyzeChain.js';
+export { analyzeVatCase } from './application/analyzeVatCase.js';
+export type { VatCaseAnalysis } from './application/analyzeVatCase.js';
+export { analyzeTransaction } from './application/analyzeTransaction.js';
+export type { TransactionAnalysisRequest, TransactionAnalysisResult, ChainRouterResult } from './application/analyzeTransaction.js';
+export { deriveSapForVatCase, deriveSapForOwnGoods, deriveSapForExport, deriveSapForProcessingService, deriveSapForSwissImport } from './application/deriveSap.js';
+export type { SapSuggestion, SpecialSapSuggestion, SapDerivationResult, SpecialSapDerivationResult } from './application/deriveSap.js';
+
+export { determineMovingSupply } from './domain/movingSupply.js';
+export type { MovingSupplyDecision, MovingSupplyRuleId } from './domain/movingSupply.js';
+export { allocateSupplyPlaces } from './domain/placeOfSupply.js';
+export type { SupplyPlaceAllocation, SupplyPosition } from './domain/placeOfSupply.js';
+export { classifyMovementScope } from './domain/movementScope.js';
+export type { MovementScope } from './domain/movementScope.js';
+export { analyzeDomesticChain } from './domain/domesticChain.js';
+export type { DomesticChainResult, DomesticSupplyAnalysis } from './domain/domesticChain.js';
+export { evaluateArt138 } from './domain/art138.js';
+export type { Art138Result } from './domain/art138.js';
+export { evaluateTriangle } from './domain/triangle.js';
+export type { TriangleResult } from './domain/triangle.js';
+export { determineAcquisition } from './domain/acquisition.js';
+export type { AcquisitionResult } from './domain/acquisition.js';
+export { evaluateNationalReverseCharge } from './domain/reverseCharge.js';
+export type { NationalRcContext, NationalRcResult, DomesticTransactionType } from './domain/reverseCharge.js';
+export { evaluateAcquisitionRegistrationRisk, evaluateDomesticSellerRegistrationRisk } from './domain/registrationRisk.js';
+export type { RegistrationRiskResult } from './domain/registrationRisk.js';
+export { evaluateOwnGoodsTransfer } from './domain/ownGoodsTransfer.js';
+export type { OwnGoodsTransferInput, OwnGoodsTransferResult, OwnGoodsPurpose } from './domain/ownGoodsTransfer.js';
+export { evaluateProcessingService } from './domain/processingService.js';
+export type { ProcessingServiceInput, ProcessingServiceResult } from './domain/processingService.js';
+export { evaluateDirectExport, evaluateEuImport, evaluateSwissImport } from './domain/thirdCountry.js';
+export type { DirectExportInput, DirectExportResult, EuImportInput, EuImportResult, SwissImportInput, SwissImportResult, ExportOrganizer, ExportEvidenceStatus } from './domain/thirdCountry.js';
+export { buildCaseFile, serializeCaseFile } from './domain/caseFile.js';
+export type { CaseFile, CaseFileOptions } from './domain/caseFile.js';
+
+export type { ChainTransaction, CountryCode, Party, PartyId, TransportFacts, VatIdCommunication, VatRegistration } from './domain/transaction.js';
+export type { AcquisitionFacts, SupplyComplianceFacts, VatCaseInput, VatIdFact, YesNoUnknown } from './domain/vatCase.js';
+
+export { COMPANIES, getCompany } from './companies/companies.js';
+export type { CompanyConfig } from './companies/companyConfig.js';
+export { hydrateCompanyParty, hydrateTransactionCompany } from './companies/hydrateTransaction.js';
+export { evaluateTriangleCompanyPolicy } from './policy/trianglePolicy.js';
+export { resolveSapTaxCode } from './sap/mappings.js';
+export type { SapMappingRequest, SapMappingResult, SapTreatment } from './sap/mappings.js';
+
+export { EU_MEMBER_STATES, isEuMemberState, VAT_ID_PREFIX_BY_COUNTRY } from './knowledge/eu/memberStates.js';
+export { EU_LEGAL_RULES } from './knowledge/eu/legalRules.js';
+export { REVERSE_CHARGE_SOURCES } from './knowledge/countries/reverseChargeSources.js';
+export { STANDARD_VAT_RATES, VAT_RATE_SOURCES, getStandardVatRate } from './knowledge/countries/standardVatRates.js';
+export { NON_EU_SOURCES } from './knowledge/nonEu/sources.js';
